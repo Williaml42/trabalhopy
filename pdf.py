@@ -1,0 +1,30 @@
+from fpdf import FPDF
+class PDF(FPDF):
+    def doc_title(self, label):
+        self.set_font('helvetica', 'B', size=16)
+        self.cell(0, 10, label, 0, 1, 'L')
+        self.ln()
+    def doc_text(self, text):
+        self.set_font('helvetica', '', size=12)
+        self.multi_cell(0, 7, text)
+        self.ln()
+    def doc_img(self, img, x, y, w, h):
+        self.image(img, x, y, w, h)
+pdf = PDF()
+pdf.add_page()
+pdf.doc_title("Vagas por categoria administrativa em Fortaleza")
+pdf.doc_text("A desigualdade social nas faculdades de Fortaleza é uma realidade que espelha as disparidades presentes na sociedade brasileira. Embora o ensino superior seja uma porta de entrada para oportunidades e crescimento profissional, o acesso a ele está longe de ser igualitário na capital cearense")
+pdf.ln(50)
+pdf.doc_img("foto1.png", 50, 70, 100, 80)
+pdf.ln(65)
+pdf.doc_text("Um dos fatores preponderantes é a questão econômica. As mensalidades das faculdades em Fortaleza, muitas vezes, representam um fardo financeiro considerável para famílias de baixa renda. A falta de recursos para custear uma educação de qualidade exclui muitos potenciais estudantes, perpetuando a desigualdade desde o início do caminho acadêmico")
+pdf.doc_text("A qualidade da educação básica, principalmente em regiões mais vulneráveis, também contribui para a disparidade. Estudantes que frequentam escolas precárias enfrentam obstáculos adicionais quando chegam ao ensino superior, já que podem ter deficiências acadêmicas e lacunas de conhecimento que estudantes de instituições mais privilegiadas não enfrentam")
+pdf.doc_text("Além disso, a ausência de políticas eficazes de inclusão amplia as brechas sociais nas faculdades de Fortaleza. ")
+pdf.doc_text(" A falta de programas específicos para grupos historicamente marginalizados, como cotas para estudantes de baixa renda, pode resultar em uma representação acadêmica desigual e contribuir para a perpetuação de estereótipos e discriminação.")
+pdf.ln(75)
+pdf.doc_img("foto2.png", 50, 100, 100, 80)
+pdf.ln(80)
+pdf.doc_text("A desigualdade social também se manifesta na falta de suporte e orientação para estudantes que são os primeiros de suas famílias a buscar o ensino superior. A ausência de redes de apoio pode dificultar a adaptação acadêmica e emocional, prejudicando o desempenho e a permanência desses estudantes nas faculdades")
+pdf.doc_text("Para enfrentar essa desigualdade, é crucial implementar políticas afirmativas que promovam o acesso igualitário à educação superior. Programas de bolsas de estudo, cotas sociais e a criação de políticas que visem melhorar a qualidade da educação básica são passos fundamentais. Além disso, é necessário criar ambientes inclusivos dentro das faculdades, onde a diversidade seja valorizada e onde os estudantes tenham o suporte necessário para superar os desafios acadêmicos")
+pdf.doc_text("Em resumo, a desigualdade social nas faculdades de Fortaleza é um fenômeno multifacetado que requer ações coordenadas em diferentes níveis. Somente através de esforços conjuntos de instituições educacionais, governos e da sociedade civil será possível criar um ambiente acadêmico mais justo e acessível para todos, independentemente de sua origem socioeconômica")
+pdf.output("educa.pdf")
